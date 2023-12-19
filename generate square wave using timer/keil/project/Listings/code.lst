@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 12:10:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\code.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\code.asm SET(SMALL) DEBUG
+                       PRINT(.\Listings\code.lst) OBJECT(.\Objects\code.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 C2A3              2     clr P2.3
+0002 B2A3              3     HERE:cpl P2.3               ; clear P2.3
+0004 758901            4     MOV TMOD,#01        ; Timer 0, mode 1 (16-bit mode)
+0007 758A00            5     MOV TL0,#00H   ; TL0 = 00 (HEX)Low byte
+000A 758CEE            6     MOV TH0,#0EEH           ; TH0 = EE (HEX)High byte
+                       7     ;SETB P2.3                      ; SET P2.3 high
+000D D28C              8     SETB TR0                        ; start timer 0
+000F 308DFD            9     AGAIN:JNB TF0,AGAIN ; monitor timer 0 flag until its rolls over
+                      10     ;CLR P2.3                        ; clear p2.3
+0012 C28C             11     CLR TR0                          ; stop timer 0
+0014 C28D             12     CLR TF0                      ; clear timer 0 flag
+0016 80EA             13     SJMP HERE
+*** WARNING #A41 IN 13 (..\code.asm, LINE 13): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 12:10:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000FH   A   
+HERE . . . . . . .  C ADDR   0002H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,55 @@
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 11:16:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\code.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\code.asm SET(SMALL) DEBUG
+                       PRINT(.\Listings\code.lst) OBJECT(.\Objects\code.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+                       2     ; addition without carry
+0000 7406              3         mov a, #06h
+0002 75F009            4         mov b, #09h
+0005 25F0              5         add a, b
+0007 F8                6         mov r0, a
+                       7     ;Substraction with carry
+0008 7408              8         mov a, #08h
+000A 9403              9         subb a,#03h
+000C F9               10         mov r1, a
+                      11     ; multiplication
+000D 7403             12         mov a, #03h
+000F 75F006           13         mov b, #06h
+0012 A4               14         mul ab
+0013 FA               15         mov r2, a
+                      16     ; division
+0014 7408             17         mov a, #08h
+0016 75F003           18         mov b, #03h
+0019 84               19         div ab
+001A FB               20         mov r3, a
+001B ACF0             21         mov r4, b
+                      22     ; increment operation
+001D 7403             23         mov a, #03h
+001F 04               24         inc a
+0020 FD               25         mov r5, a
+                      26     ; decrement operation
+0021 7E07             27         mov r6, #07h
+0023 1E               28         dec r6
+0024 120003           29         lcall 0003h
+                      30         end
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 11:16:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\LogicalOperation.obj" 
+TO ".\Objects\arith" 
+PRINT(".\Listings\arith.m51")

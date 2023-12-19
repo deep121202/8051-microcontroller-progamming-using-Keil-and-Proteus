@@ -1,0 +1,88 @@
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 11:49:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\code.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\code.asm SET(SMALL) DEBUG
+                       PRINT(.\Listings\code.lst) OBJECT(.\Objects\code.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     ;Use 2 lines and 5x7 matrix     
+0000 7438              3     MOV A,#38H 
+0002 1130              4     ACALL COMNWRT 
+0004 114A              5     ACALL DELAY 
+                       6     ; Cursor blinking OFF and display ON
+0006 740E              7     MOV A, #0EH 
+0008 1130              8     ACALL COMNWRT 
+000A 114A              9     ACALL DELAY 
+                      10     ; Clear screen
+000C 7401             11     MOV A, #01 
+000E 1130             12     ACALL COMNWRT 
+0010 114A             13     ACALL DELAY 
+                      14     ; Increment cursor
+0012 7406             15     MOV A, #06H 
+0014 1130             16     ACALL COMNWRT 
+0016 114A             17     ACALL DELAY 
+                      18     ; Cursor line1, position 7
+0018 7486             19     MOV A, #86H 
+001A 1130             20     ACALL COMNWRT 
+001C 114A             21     ACALL DELAY 
+001E 7459             22     MOV A, #'Y' 
+0020 113D             23     ACALL DATAWRT 
+0022 114A             24     ACALL DELAY 
+0024 7445             25     MOV A, #'E' 
+0026 113D             26     ACALL DATAWRT 
+0028 114A             27     ACALL DELAY 
+002A 7453             28     MOV A, #'S' 
+002C 113D             29     ACALL DATAWRT 
+002E 80FE             30     AGAIN: SJMP AGAIN 
+                      31     
+0030                  32     COMNWRT: 
+0030 F590             33      MOV P1, A 
+0032 C2B5             34      CLR P3.5; RS pin, RS=0 command register, RS=1 Data register
+0034 C2B4             35      CLR P3.4; R/WR operation, Read active high and WR active low
+0036 D2B3             36     SETB P3.3; enable pin active high
+0038 114A             37      ACALL DELAY 
+003A C2B3             38      CLR P3.3 
+003C 22               39      RET
+                      40      
+003D                  41     DATAWRT: 
+003D F590             42      MOV P1, A 
+003F D2B5             43      SETB P3.5 
+0041 C2B4             44      CLR P3.4 
+0043 D2B3             45      SETB P3.3 
+0045 114A             46      ACALL DELAY 
+0047 C2B3             47      CLR P3.3 
+0049 22               48      RET 
+                      49      
+004A                  50     DELAY:
+004A 7D0A             51     MOV R5, #0AH
+004C 7BFF             52     AGAIN1: MOV R3, #0FFH
+004E DBFE             53     BACK: DJNZ R3, BACK
+0050 DDFA             54     DJNZ R5, AGAIN1
+0052 22               55     RET
+*** WARNING #A41 IN 55 (..\code.asm, LINE 55): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 11:49:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   002EH   A   
+AGAIN1 . . . . . .  C ADDR   004CH   A   
+BACK . . . . . . .  C ADDR   004EH   A   
+COMNWRT. . . . . .  C ADDR   0030H   A   
+DATAWRT. . . . . .  C ADDR   003DH   A   
+DELAY. . . . . . .  C ADDR   004AH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
