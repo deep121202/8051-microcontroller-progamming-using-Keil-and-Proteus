@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 12:46:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\code.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\code.asm SET(SMALL) DEBUG
+                       PRINT(.\Listings\code.lst) OBJECT(.\Objects\code.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 D2A0              2     LOOP: SETB P2.0
+0002 110A              3     ACALL DELAY
+0004 C2A0              4     CLR P2.0
+0006 110A              5     ACALL DELAY
+0008 80F6              6     SJMP LOOP
+                       7     
+000A 78FF              8     DELAY: MOV R0,#255
+000C 79FF              9     AGAIN: MOV R1,#255
+000E D9FE             10     BACK: DJNZ R1,BACK
+0010 D8FA             11     DJNZ R0,AGAIN
+0012 22               12     RET
+*** WARNING #A41 IN 12 (..\code.asm, LINE 12): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  CODE                                                                 12/19/2023 12:46:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000CH   A   
+BACK . . . . . . .  C ADDR   000EH   A   
+DELAY. . . . . . .  C ADDR   000AH   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

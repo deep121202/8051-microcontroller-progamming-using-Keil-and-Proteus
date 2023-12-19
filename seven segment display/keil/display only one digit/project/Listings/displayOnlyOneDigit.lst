@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  DISPLAYONLYONEDIGIT                                                  12/19/2023 12:57:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\displayOnlyOneDigit.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\displayOnlyOneDigit.asm S
+                      ET(SMALL) DEBUG PRINT(.\Listings\displayOnlyOneDigit.lst) OBJECT(.\Objects\displayOnlyOneDigit.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 7440              2     LOOP:MOV A,#40H
+0002 F5A0              3     MOV P2,A
+0004 110E              4     ACALL DELAY
+0006 74FF              5     MOV A,#0FFH
+0008 F5A0              6     MOV P2,A
+000A 110E              7     ACALL DELAY
+000C 80F2              8     SJMP LOOP
+                       9     
+000E 7D01             10     DELAY:MOV R5,#01H
+0010 7BFF             11     BACK2: MOV R3,#255
+0012 7CFF             12     BACK1: MOV R4,#255
+0014 DCFE             13     AGAIN: DJNZ R4,AGAIN
+0016 DBFA             14      DJNZ R3,BACK1
+0018 DDF6             15      DJNZ R5,BACK2
+001A 22               16      RET
+*** WARNING #A41 IN 16 (..\displayOnlyOneDigit.asm, LINE 16): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  DISPLAYONLYONEDIGIT                                                  12/19/2023 12:57:27 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0014H   A   
+BACK1. . . . . . .  C ADDR   0012H   A   
+BACK2. . . . . . .  C ADDR   0010H   A   
+DELAY. . . . . . .  C ADDR   000EH   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

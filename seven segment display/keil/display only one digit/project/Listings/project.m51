@@ -1,0 +1,60 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/19/2023  12:57:27  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\SETUPS\KEIL SOFTWARE\ES SOFTWARE\KEIL V5\INSTALLED\C51\BIN\BL51.EXE .\Objects\displayOnlyOneDigit.obj TO .\Objects\pr
+>> oject PRINT (.\Listings\project.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\displayOnlyOneDigit.obj (DISPLAYONLYONEDIGIT)
+
+
+LINK MAP OF MODULE:  .\Objects\project (DISPLAYONLYONEDIGIT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     001BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (DISPLAYONLYONEDIGIT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DISPLAYONLYONEDIGIT
+  C:0014H         SYMBOL        AGAIN
+  C:0012H         SYMBOL        BACK1
+  C:0010H         SYMBOL        BACK2
+  C:000EH         SYMBOL        DELAY
+  C:0000H         SYMBOL        LOOP
+  D:00A0H         SYMBOL        P2
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0004H         LINE#         4
+  C:0006H         LINE#         5
+  C:0008H         LINE#         6
+  C:000AH         LINE#         7
+  C:000CH         LINE#         8
+  C:000EH         LINE#         10
+  C:0010H         LINE#         11
+  C:0012H         LINE#         12
+  C:0014H         LINE#         13
+  C:0016H         LINE#         14
+  C:0018H         LINE#         15
+  C:001AH         LINE#         16
+  -------         ENDMOD        DISPLAYONLYONEDIGIT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001BH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=27
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

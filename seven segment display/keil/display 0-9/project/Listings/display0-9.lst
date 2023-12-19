@@ -1,0 +1,54 @@
+A51 MACRO ASSEMBLER  DISPLAY0_9                                                           12/19/2023 13:07:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\display0-9.obj
+ASSEMBLER INVOKED BY: E:\setups\keil software\es software\keil v5\installed\C51\BIN\A51.EXE ..\display0-9.asm SET(SMALL)
+                       DEBUG PRINT(.\Listings\display0-9.lst) OBJECT(.\Objects\display0-9.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 900100            2     LOOP:MOV DPTR,#0100H
+0003 790A              3     MOV R1,#0AH
+0005 E4                4     BACK:CLR A
+0006 93                5     MOVC A,@A+DPTR
+0007 F5A0              6     MOV P2,A
+0009 1110              7     ACALL DELAY
+000B A3                8     INC DPTR
+000C D9F7              9     DJNZ R1,BACK
+000E 80F0             10     SJMP LOOP
+                      11     
+0010 7D0A             12     DELAY:MOV R5,#0AH
+0012 7BFF             13     BACK2: MOV R3,#255
+0014 7CFF             14     BACK1: MOV R4,#255
+0016 DCFE             15     AGAIN: DJNZ R4,AGAIN
+0018 DBFA             16      DJNZ R3,BACK1
+001A DDF6             17      DJNZ R5,BACK2
+001C 22               18      RET
+0100                  19     ORG 0100H 
+0100 40792430         20     DB 40H,79H,24H,30H,19H,12H,02H,58H,00H,10H
+0104 19120258                
+0108 0010                    
+                      21      END
+A51 MACRO ASSEMBLER  DISPLAY0_9                                                           12/19/2023 13:07:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0016H   A   
+BACK . . . . . . .  C ADDR   0005H   A   
+BACK1. . . . . . .  C ADDR   0014H   A   
+BACK2. . . . . . .  C ADDR   0012H   A   
+DELAY. . . . . . .  C ADDR   0010H   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
