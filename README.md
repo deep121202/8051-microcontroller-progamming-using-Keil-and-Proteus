@@ -1,4 +1,4 @@
-# 8051-microcontroller-progams-using-Keil-and-Proteus
+# 8051-microcontroller-progams-using-Keil-and-Proteu
 Microcontroller consists of all features that are found in microprocessors with additional built-in ROM, RAM, I/O ports, Serial ports, Timers, Interrupts, and Clock circuits. It is an entire computer on a single chip that is embedded within applications. Microcontrollers are widely used in many domestic (washing machines, VCD players, microwave oven, robotics, etc.) as well as industrial and automobile areas.
 
 The 8051 is the first microcontroller of the MCS-51 family developed by Intel Corporation in 1980. It was developed using N-type Metal-Oxide-Semiconductor (NMOS) technology and later it came to be identified by a letter C in their names e.g. 80C51 which was developed with Complementary Metal-Oxide-Semiconductor (CMOS) technology which consumes less power than NMOS and made it better compatible for battery-powered applications.
